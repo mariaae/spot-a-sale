@@ -1,0 +1,18 @@
+{
+  "name": "spot-a-sale",
+  "version": "1.0.0",
+  "description": "Spot a sale in Berlin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "shopping",
+    "sale"
+  ],
+  "author": "Maria Alavez <mariaalavez@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
