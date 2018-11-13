@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+require('./mongo-connection')
+
 app.set('view engine', 'pug')
 
 // Root route without pug
