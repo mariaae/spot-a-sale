@@ -1,6 +1,5 @@
 const express = require('express')
-const app = express()
-const port = 3000
+const bodyParser = require('body-parser')
 
 const StoreService = require('./services/store-service')
 const StoreModel = require('./models/store')
@@ -8,7 +7,13 @@ const EventModel = require('./models/event')
 
 require('./mongo-connection')
 
+const app = express()
+const port = 3000
+
+
+
 app.set('view engine', 'pug')
+app.use(bodyParser.json())
 
 // Setup server
 app.listen(port, () => console.log(`Listening on port ${port}✨`))
@@ -26,19 +31,19 @@ app.get('/', (req, res) => {
 // Store Routes
 app.get('/stores', async(req, resp) => {
   // const stores = StoreModel.find()
-  const stores = StoreService.findAll()
-  resp.render('stores', { stores: req.stores })
+  const stores = await StoreService.findAll()
+  resp.render('stores', { stores })
 })
 
 app.get('/stores/:id', async(req, resp) => {
   // const store = StoreModel.findOne(req.params.id)
-  const store = StoreMode.findOne(req.params.id)
+  const store = await StoreMode.findOne(req.params.id)
   res.render('data', { data: user })
 })
 
 app.post('/stores/new', async(req, resp) => {
   // const store = StoreModel.create(req.body)
-  const store = StoreService.add(req.body)
+  const store = await StoreService.add(req.body)
   resp.send(store)
 })
 

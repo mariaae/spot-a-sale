@@ -2,14 +2,15 @@ html
   head
   body
     h1 Stores
-    h2= "We currently have #{stores.length} stores"
+    h2 "We currently have #{stores.length} stores"
     table
       tr
         th Name
         th Address
-      //- each store in stores
-      //-   tr
-      //-     td= lala
+      each store in stores
+        tr
+          td= store.name
+          td= store.address
 
 
 
