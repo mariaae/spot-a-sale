@@ -25,7 +25,7 @@ async function find(_id) {
 }
 
 async function del(_id) {
-  return StoreModel.delete({ _id })
+  return StoreModel.deleteOne({ _id })
 }
 
 module.exports = {

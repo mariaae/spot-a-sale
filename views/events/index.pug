@@ -1,0 +1,17 @@
+html
+  head
+  body
+    h1 Events
+    h2 We currently have #{events.length} events
+    table
+      tr
+        th Id
+        th Category
+        th Percentage
+      each event in events
+        tr
+          td= event.id
+          td= event.category
+          td= event.address
+          td
+            a(href='/stores/{{_id}}', method='get') Add customer

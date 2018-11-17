@@ -1,0 +1,19 @@
+html
+  head
+  body
+    h1 Customers
+    h2 We currently have #{customers.length} customers
+    table
+      tr
+        th Id
+        th Name
+        th Lastname
+        th Email
+      each customer in customers
+        tr
+          td= customer.id
+          td= customer.name
+          td= customer.lastname
+          td= customer.email
+          td
+            a(href='#') Delete

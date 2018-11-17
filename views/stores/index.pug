@@ -1,0 +1,24 @@
+html
+  head
+  body
+    h1 Stores
+    h2 We currently have #{stores.length} stores
+    table
+      tr
+        th Id
+        th Name
+        th Address
+      each store in stores
+        tr
+          td= store.id
+          td= store.name
+          td= store.address
+          td
+            a(href='/stores/{{_id}}', method='get') View
+          td
+            a(href='/stores/{{_id}}', method='patch') Edit
+          td
+            a(href='/stores/' + `${store.id}`, method='delete') Delete
+
+            //- a(href=`${'/stores/store.id'}` method='delete') Delete
+
