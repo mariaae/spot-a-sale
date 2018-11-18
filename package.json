@@ -4,7 +4,7 @@
   "description": "Spot a sale in Berlin",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava --verbose --watch"
   },
   "keywords": [
     "shopping",
@@ -17,5 +17,10 @@
     "express": "^4.16.4",
     "mongoose": "^5.3.12",
     "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "nyc": "^13.1.0",
+    "supertest": "^3.3.0"
   }
 }

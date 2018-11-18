@@ -1,2 +1,2 @@
-const CustomerModel = require('./models/customer')
+const CustomerModel = require('../models/customer')
 
