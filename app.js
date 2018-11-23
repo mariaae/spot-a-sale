@@ -26,7 +26,7 @@ app.use(bodyParser.json())
 
 // Add routes to middleware
 app.use('/', homepageRouter)
-app.use('/stores', storesRouter)
+app.use('/', storesRouter)
 
 // Routes
 

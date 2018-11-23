@@ -2,9 +2,8 @@ const storeModel = require('../models/store')
 
 //Index
 exports.index = async (req, res) => {
-  StoreModel.find()
-  // stores = await StoreModel.find()
-  // res.send(stores)
+  stores = await storeModel.find()
+  res.send(stores)
 }
 
 //Show
