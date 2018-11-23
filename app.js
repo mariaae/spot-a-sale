@@ -1,13 +1,17 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 
+// Require Routers
+const homepageRouter = require('./routes/homepage')
+const storesRouter = require('./routes/stores')
+
 // Require services
-const StoreService = require('./services/store-service')
+// const StoreService = require('./services/store-service')
 const EventService = require('./services/event-service')
 const CustomerService = require('./services/customer-service')
 
 // Require Models
-const StoreModel = require('./models/store')
+// const StoreModel = require('./models/store')
 const EventModel = require('./models/event')
 const CustomerModel = require('./models/customer')
 
@@ -20,38 +24,42 @@ const app = express()
 app.set('view engine', 'pug')
 app.use(bodyParser.json())
 
+// Add routes to middleware
+app.use('/', homepageRouter)
+app.use('/stores', storesRouter)
+
 // Routes
 
 // Root
-app.get('/', (req, res) => {
-  res.render('index')
-})
+// app.get('/', (req, res) => {
+//   res.render('index')
+// })
 
 // Store Routes
-app.get('/stores', async(req, resp) => {
-  // const stores = StoreModel.find()
-  const stores = await StoreService.findAll()
-  resp.render('stores/index', { stores })
-})
+// app.get('/stores', async(req, resp) => {
+//   // const stores = StoreModel.find()
+//   const stores = await StoreService.findAll()
+//   resp.render('stores/index', { stores })
+// })
 
-app.get('/stores/:id', async(req, resp) => {
-  const store = StoreModel.findOne(req.params.id).populate('events')
-  // const store = await StoreService.find(req.params.id)
-  resp.render('stores/show', { store })
-})
+// app.get('/stores/:id', async(req, resp) => {
+//   const store = StoreModel.findOne(req.params.id).populate('events')
+//   // const store = await StoreService.find(req.params.id)
+//   resp.render('stores/show', { store })
+// })
 
-app.post('/stores/new', async(req, resp) => {
-  // const store = await StoreModel.create(req.body)
-  const store = await StoreService.add(req.body)
-  // resp.render('stores/new')
-  resp.send(store)
-})
+// app.post('/stores/new', async(req, resp) => {
+//   // const store = await StoreModel.create(req.body)
+//   const store = await StoreService.add(req.body)
+//   // resp.render('stores/new')
+//   resp.send(store)
+// })
 
-app.delete('/stores/:id', async(req, resp) => {
-  const store = await StoreService.del(req.params.id)
+// app.delete('/stores/:id', async(req, resp) => {
+//   const store = await StoreService.del(req.params.id)
 
-  resp.send(store)
-})
+//   resp.send(store)
+// })
 
 // Event Routes
 app.get('/events', async(req, resp) => {
