@@ -8,18 +8,19 @@ exports.index = async (req, res) => {
 
 //Show
 exports.show = async (req, res) => {
-  console.log("hola")
-  // resp.send("Not implemented: Store show")
+  store = await storeModel.findById(req.params.id)
+  res.send(store)
 }
 
-//New
-
-
-// Edit
-
-
 // Create
-
-
+exports.create = async (req, res) => {
+  store = await storeModel.create(req.body)
+  res.send(store)
+}
 
 // Delete
+exports.delete = async (req, res) => {
+  const _id = req.params.id
+  store = await storeModel.deleteOne({_id})
+  res.send(store)
+}

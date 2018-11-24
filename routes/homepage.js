@@ -2,11 +2,10 @@ const express = require('express')
 const router = express.Router()
 
 // Require Homepage Controller
-const homepageController = require('../controllers/storeController')
+const homepageController = require('../controllers/homepageController')
 
-router.get('/', (req, res) => {
-  res.send("Hey there!!")
-})
+// Homepage Route
+router.get('/', homepageController.index)
 
 module.exports = router
 

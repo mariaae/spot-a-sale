@@ -1,3 +1,3 @@
-exports.homepage = async (req, res) => {
-  resp.send("Homepage")
+exports.index = async (req, res) => {
+  res.render('index')
 }
