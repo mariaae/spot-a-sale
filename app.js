@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 // Require Routers
 const homepageRouter = require('./routes/homepage')
@@ -15,6 +16,7 @@ const app = express()
 
 app.set('view engine', 'pug')
 app.use(bodyParser.json())
+app.use(cors())
 
 // Add routes to middleware
 app.use('/', homepageRouter)
