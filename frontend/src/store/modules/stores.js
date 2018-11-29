@@ -4,6 +4,7 @@ const REQUEST_SUCCESS = 'REQUEST_SUCCESS';
 
 const state = {
   data: [],
+  store: {}
 };
 
 const mutations = {
@@ -15,7 +16,7 @@ const mutations = {
 const actions = {
   async fetchStores({ commit }) {
     const res = await axios.get('http://localhost:3000/stores');
-    commit(REQUEST_SUCCESS, res.data)
+    commit(REQUEST_SUCCESS, res.data);
   },
 };
 

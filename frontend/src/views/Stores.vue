@@ -16,16 +16,27 @@
 
       })
     },
-    method: {
+    methods: {
       ...mapActions(['fetchStores'])
     }
   }
 </script>
 
 <template lang="pug">
-  div.wrapper
-    h2 Hola
+  div
+    div(v-if="stores.length")
+      h1 Stores
+      div.stores-list
+        div.store(v-for="store in stores")
+          store(:data="store" key="store._id")
 </template>
 
 <style>
+.stores-list {
+  flex-wrap: wrap;
+}
+
+.store {
+  margin: 30px;
+}
 </style>

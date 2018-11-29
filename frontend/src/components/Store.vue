@@ -6,9 +6,16 @@
 </script>
 
 <template lang="pug">
-    h1 Hello!
+    div.wrapper
+      div {{data._id}}
+      div {{data.name}}
+      div {{data.address}}
 </template>
 
 <style>
-
+.wrapper {
+  background-color: pink;
+  padding: 20px;
+  border-radius: 20px;
+}
 </style>
