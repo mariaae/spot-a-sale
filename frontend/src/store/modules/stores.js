@@ -6,14 +6,11 @@ const CREATE_SUCCESS = 'CREATE_SUCCESS';
 
 const state = {
   data: [],
-  store: {},
+  store: {}, // My store
 };
 
 const mutations = {
   [REQUEST_SUCCESS](state, data) {
-    state.data = data;
-  },
-  [DELETE_STORE](state, data) {
     state.data = data;
   },
   [CREATE_SUCCESS](state, data) {
@@ -33,7 +30,7 @@ const actions = {
 
   async deleteStore({ commit }, id) {
     const res = await axios.delete(`http://localhost:3000/stores/${id}`);
-    commit(DELETE_STORE, res.data);
+    commit(res.data);
   },
 };
 

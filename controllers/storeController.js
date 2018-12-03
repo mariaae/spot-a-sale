@@ -22,5 +22,5 @@ exports.create = async (req, res) => {
 exports.delete = async (req, res) => {
   const _id = req.params.id
   store = await storeModel.deleteOne({_id})
-  res.send(store)
+  res.send("ok")
 }
