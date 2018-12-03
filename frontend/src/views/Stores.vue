@@ -6,6 +6,8 @@
     name: 'stores',
     created() {
       this.fetchStores();
+      this.createStore();
+      this.deleteStore();
     },
     components: {
       Store
@@ -17,7 +19,7 @@
       })
     },
     methods: {
-      ...mapActions(['fetchStores'])
+      ...mapActions(['fetchStores', 'createStore', 'deleteStore'])
     }
   }
 </script>
@@ -26,9 +28,11 @@
   div
     div(v-if="stores.length")
       h1 Stores
+      button(@click="createStore") Add Store
       div.stores-list
         div.store(v-for="store in stores")
           store(:data="store" key="store._id")
+          button(@click="deleteStore(store._id)") Delete Store
 </template>
 
 <style>
